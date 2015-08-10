@@ -36,7 +36,7 @@
     //#define BI
     //#define TRI
     //#define QUADP
-    //#define QUADX
+    #define QUADX
     //#define Y4
     //#define Y6
     //#define HEX6
@@ -58,9 +58,9 @@
        This is the minimum value that allow motors to run at a idle speed  */
     //#define MINTHROTTLE 1300 // for Turnigy Plush ESCs 10A
     //#define MINTHROTTLE 1120 // for Super Simple ESCs 10A
-    //#define MINTHROTTLE 1064 // special ESC (simonk)
+    #define MINTHROTTLE 1064 // special ESC (simonk)
     //#define MINTHROTTLE 1050 // for brushed ESCs like ladybird
-    #define MINTHROTTLE 1150 // (*) (**)
+    //#define MINTHROTTLE 1150 // (*) (**)
 
   /****************************    Motor maxthrottle    *******************************/
     /* this is the maximum value for the ESCs at full power, this value can be increased up to 2000 */
@@ -150,7 +150,7 @@
       //#define MEGAWAP_V2_STD     // available here: http://www.multircshop.com                    <- confirmed by Alex
       //#define MEGAWAP_V2_ADV
       //#define HK_MultiWii_SE_V2  // Hobbyking board with MPU6050 + HMC5883L + BMP085
-      //#define HK_MultiWii_328P   // Also labeled "Hobbybro" on the back.  ITG3205 + BMA180 + BMP085 + NMC5583L + DSM2 Connector (Spektrum Satellite)  
+      #define HK_MultiWii_328P   // Also labeled "Hobbybro" on the back.  ITG3205 + BMA180 + BMP085 + NMC5583L + DSM2 Connector (Spektrum Satellite)  
       //#define RCNet_FC           // RCNet FC with MPU6050 and MS561101BA  http://www.rcnet.com
       //#define RCNet_FC_GPS       // RCNet FC with MPU6050 + MS561101BA + HMC5883L + UBLOX GPS http://www.rcnet.com
       //#define FLYDU_ULTRA        // MEGA+10DOF+MT3339 FC
@@ -463,7 +463,7 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
 
     /**********************************    Buzzer Pin    **********************************/
       /* this moves the Buzzer pin from TXO to D8 for use with ppm sum or spectrum sat. RX (not needed if A32U4ALLPINS is active) */
-      //#define D8BUZZER
+      #define D8BUZZER
 
     /***********************      Promicro version related     ****************************/
       /* Inverted status LED for Promicro ver 10 */
@@ -550,7 +550,7 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
 
   /************************        Reset Baro altitude on arm         ********************/
   /* When unchecked a calibration of the baro altitude is preformed every time arming is activated */
-  //#define ALTITUDE_RESET_ON_ARM
+  #define ALTITUDE_RESET_ON_ARM
 
   /************************        Angele throttle correction         ********************/
   /* Automatically increase throttle based on the angle of the copter
@@ -664,12 +664,12 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
        in NMEA mode the GPS must be configured to output GGA and RMC NMEA sentences (which is generally the default conf for most GPS devices)
        at least 5Hz update rate. uncomment the first line to select the GPS serial port of the arduino */
        
-    //#define GPS_SERIAL 2         // should be 2 for flyduino v2. It's the serial port number on arduino MEGA
+    #define GPS_SERIAL 2         // should be 2 for flyduino v2. It's the serial port number on arduino MEGA
                                    // must be 0 for PRO_MINI (ex GPS_PRO_MINI)
                                    // note: Now a GPS can share MSP on the same port. The only constrain is to not use it simultaneously, and use the same port speed.
 
     // avoid using 115200 baud because with 16MHz arduino the 115200 baudrate have more than 2% speed error (57600 have 0.8% error)
-    #define GPS_BAUD   57600       // GPS_BAUD will override SERIALx_COM_SPEED for the selected port
+    #define GPS_BAUD   4800       // GPS_BAUD will override SERIALx_COM_SPEED for the selected port
 
    /* GPS protocol 
        NMEA  - Standard NMEA protocol GGA, GSA and RMC  sentences are needed
@@ -678,7 +678,7 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
        With UBLOX and MTK_BINARY you don't have to use GPS_FILTERING in multiwii code !!! */
 
     
-    //#define NMEA
+    #define NMEA
     //#define UBLOX
     //#define MTK_BINARY16
     //#define MTK_BINARY19
@@ -788,7 +788,7 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
       //#define LCD_ETPP        // I2C LCD: Eagle Tree Power Panel LCD, which is i2c (not serial)
       //#define LCD_LCD03       // I2C LCD: LCD03, which is i2c
       //#define LCD_LCD03S      // SERIAL LCD: LCD03 whit serial 9600 baud comunication enabled.
-      //#define OLED_I2C_128x64 // I2C LCD: OLED http://www.multiwii.com/forum/viewtopic.php?f=7&t=1350
+      #define OLED_I2C_128x64 // I2C LCD: OLED http://www.multiwii.com/forum/viewtopic.php?f=7&t=1350
       //#define OLED_DIGOLE     // I2C OLED from http://www.digole.com/index.php?productID=550
 
     /******************************   Display settings   ***********************************/
@@ -825,7 +825,7 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
 
     /* uncomment this line if you plan to use a LCD or OLED for tweaking parameters
      * http://www.multiwii.com/wiki/index.php?title=Extra_features#Configuration_Menu */
-      //#define LCD_CONF
+      #define LCD_CONF
 
     /* to include setting the aux switches for AUX1 -> AUX4 via LCD */
       //#define LCD_CONF_AUX
@@ -842,14 +842,14 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
      * http://www.multiwii.com/wiki/index.php?title=LCD_Telemetry */
 
     /********************************    Activation     ***********************************/
-    //#define LCD_TELEMETRY
+    #define LCD_TELEMETRY
 
     /* to enable automatic hopping between a choice of telemetry pages uncomment this. */
-    //#define LCD_TELEMETRY_AUTO "123452679" // pages 1 to 9 in ascending order
+    #define LCD_TELEMETRY_AUTO "123452679" // pages 1 to 9 in ascending order
     //#define LCD_TELEMETRY_AUTO  "212232425262729" // strong emphasis on page 2
 
     /* manual stepping sequence; first page of the sequence gets loaded at startup to allow non-interactive display */
-    //#define LCD_TELEMETRY_STEP "0123456789" // should contain a 0 to allow switching off.
+    #define LCD_TELEMETRY_STEP "0123456789" // should contain a 0 to allow switching off.
 
     /* optional exclude some functionality - uncomment to suppress some unwanted telemetry pages */
     //#define SUPPRESS_TELEMETRY_PAGE_1
@@ -878,8 +878,8 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
   /********************************************************************/
   /****                             Buzzer                         ****/
   /********************************************************************/
-    //#define BUZZER
-    //#define RCOPTIONSBEEP         // uncomment this if you want the buzzer to beep at any rcOptions change on channel Aux1 to Aux4
+    #define BUZZER
+    #define RCOPTIONSBEEP         // uncomment this if you want the buzzer to beep at any rcOptions change on channel Aux1 to Aux4
     //#define ARMEDTIMEWARNING 330  // (*) Trigger an alarm after a certain time of being armed [s] to save you lipo (if your TX does not have a countdown)
     //#define PILOTLAMP             //Uncomment if you are using a X-Arcraft Pilot Lamp
 
@@ -891,7 +891,7 @@ Also note, that maqgnetic declination changes with time, so recheck your value e
        with R1=33k and R2=51k
        vbat = [0;1023]*16/VBATSCALE
        must be associated with #define BUZZER ! */
-    //#define VBAT              // uncomment this line to activate the vbat code
+    #define VBAT              // uncomment this line to activate the vbat code
     #define VBATSCALE       131 // (*) (**) change this value if readed Battery voltage is different than real voltage
     #define VBATNOMINAL     126 // 12,6V full battery nominal voltage - only used for lcd.telemetry
     #define VBATLEVEL_WARN1 107 // (*) (**) 10,7V
