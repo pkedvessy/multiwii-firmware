@@ -48,11 +48,15 @@ void configureReceiver() {
   #if defined(STANDARD_RX)
     #if defined(MEGA)
       DDRK = 0;  // defined PORTK as a digital port ([A8-A15] are consired as digital PINs and not analogical)
+      // added by Ed in an effort to make V_BATPIN work when it is overridden with OVERRIDE_V_BATPIN to be one of A8-A15 on a mega
+      pinMode(V_BATPIN,INPUT); // just to ensure the pin is actually set up correctly...
+      digitalWrite(V_BATPIN,LOW);
+      uint16_t temp = analogRead(V_BATPIN);
     #endif
     // PCINT activation
     for(uint8_t i = 0; i < PCINT_PIN_COUNT; i++){ // i think a for loop is ok for the init.
-      PCINT_RX_PORT |= PCInt_RX_Pins[i];
-      PCINT_RX_MASK |= PCInt_RX_Pins[i];
+        PCINT_RX_PORT |= PCInt_RX_Pins[i];
+        PCINT_RX_MASK |= PCInt_RX_Pins[i];
     }
     PCICR = PCIR_PORT_BIT;
     
